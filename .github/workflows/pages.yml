@@ -28,7 +28,10 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-npm-cache
       - name: Install Dependencies
+  
         run: npm install
+      - name: Fix hexo permissions
+        run: chmod +x node_modules/.bin/hexo
       - name: Build
         run: npm run build
       - name: Upload Pages artifact
